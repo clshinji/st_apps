@@ -14,4 +14,8 @@
 
 <img src="st_apps_qr.PNG" width= "300px" >
 
-[![🍣アプリへのリンク](st_apps_qr.PNG)]([http://sozai.rash.jp/p/000054.html](https://clshinji-st-apps-main-zzt79i.streamlit.app/)) 
+<p>
+<a href="[http://sozai.rash.jp/p/000054.html](http://sozai.rash.jp/p/000054.html](https://clshinji-st-apps-main-zzt79i.streamlit.app/)">
+<img src="st_apps_qr.PNG" alt="🍣アプリへのリンク" />
+</a>
+</p> 
