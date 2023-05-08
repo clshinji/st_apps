@@ -14,4 +14,4 @@
 
 <img src="st_apps_qr.PNG" width= "300px" >
 
-![スシローアレルギー情報チェックアプリ](https://github.com/clshinji/st_apps/blob/fa9fc5f2193c89675d8c16899e5aa89113d0d9c6/st_apps_qr.PNG "アプリへのQRコード")
+[![🍣アプリへのリンク](st_apps_qr.PNG)]([http://sozai.rash.jp/p/000054.html](https://clshinji-st-apps-main-zzt79i.streamlit.app/)) 
