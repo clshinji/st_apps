@@ -10,7 +10,4 @@
 
 - Streamlitを使用して動作しています。引用元のアレルギー情報は作者が適宜更新していますので、最新版が必要な場合は作者まで連絡してください。(Works with Streamlit. Allergy information in the citation is updated by the author as needed, so please contact the author if you need the latest version.)
 
-<a href="https://clshinji-st-apps-main-zzt79i.streamlit.app/" target="_blank" rel="noopener noreferrer">🍣アプリへのリンク</a>
-
-
-[侍エンジニアブログ](https://www.sejuku.net/blog/){:target="_blank"}
+[🍣アプリへのリンク](https://clshinji-st-apps-main-zzt79i.streamlit.app/)
