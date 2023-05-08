@@ -10,14 +10,14 @@ def main():
     '''
 
     csv_path = 'allergy_table.csv'
-    type_column_name = '分類'
-    names_column_name = '商品名'
+    type_column_name = '区分'
+    names_column_name = 'メニュー名称'
 
     st.markdown('# 🍣スシローアレルギー情報')
-    st.write('更新日:2023/3/10')
+    st.write('更新日:2023/4/28')
 
     # データフレームの読み込み
-    df = pd.read_csv(csv_path, index_col=0, encoding='shift_jis')
+    df = pd.read_csv(csv_path, index_col=0)
     columns_list = list(df.columns)
     class_list = df[type_column_name].unique()
 
@@ -25,15 +25,15 @@ def main():
     choiced_allergy_list = st.multiselect(
         'アレルギー項目を選択',
         columns_list[2:],
-        ['乳']
+        ['乳成分']
     )
     if not choiced_allergy_list:
         st.error('アレルギー項目を選択してください')
     choiced_type_list = st.multiselect(
-        '分類を選択',
+        '区分を選択',
         class_list,
     )
-    key = st.text_input('検索したい商品名を入力してください')
+    key = st.text_input('検索したいメニュー名称を入力してください')
     dropna_check = st.checkbox('アレルゲン無を非表示にする')
 
     # 表示用データフレームの作成
