@@ -1,4 +1,5 @@
 import streamlit as st
+from pathlib import Path
 import pandas as pd
 
 
@@ -67,33 +68,20 @@ def main():
     # st.sidebar.write('アレルギー項目リスト👇')
     # st.sidebar.write(columns_list)
     
+    # 結果を表示する
     st.markdown('# アレルギー情報テーブル')
     st.dataframe(df_view)
 
-    st.markdown("""
-    ## 公式サイト\n
-    https://www.akindo-sushiro.co.jp/menu/allergy.html\n
-    1. マークの見方\n
-    > \n
-    > ●：原材料として使用しています\n
-    > ○：工場で製造ラインを共有しています\n
-    \n
-    2. 注意事項\n
-    > \n
-    > 本来そのメニューに含まれていない他のアレルギー物質が、工場製造時や店舗調理時に意図せず付着、混入する場合があります。\n
-    > 情報は随時更新しておりますので、常に最新の情報をご覧下さい。\n
-    > 限定メニューなど、掲載されていない商品がある場合があります。\n
-    """)
-
-    st.markdown("""
-    # ⚠ 注意 caution\n
-    このページは、[スシロー公式サイト](https://www.akindo-sushiro.co.jp/menu/allergy.html)の情報を参照して作者が個人的に作成したものです。\n
-    公的な情報ではありませんので、必ず個人の責任に基づいて利用してください。\n
-    This page was personally prepared by the author in reference to information on the official Sushiro website.\n
-    It is not public information and should always be used based on personal responsibility.
-    """)
+    # 注意書き
+    caution_markdown = read_markdown_file("caution.md")
+    st.markdown(caution_markdown, unsafe_allow_html=True)
 
     return
+
+
+@st.cache()
+def read_markdown_file(markdown_file):
+    return Path(markdown_file).read_text()
 
 
 if __name__ == '__main__':
