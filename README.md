@@ -12,4 +12,4 @@
 
 [🍣アプリへのリンク](https://clshinji-st-apps-main-zzt79i.streamlit.app/)
 
-[QR](st_apps_qr.PNG)
+<img src="st_apps_qr.PNG" width= "300px" >
