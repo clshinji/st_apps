@@ -69,6 +69,15 @@ def main():
     
     st.markdown('# アレルギー情報テーブル')
     st.dataframe(df_view)
+
+    st.markdown("""
+    # ⚠ 注意 caution\n
+    このページは、スシロー公式サイトの情報を参照して作者が個人的に作成したものです。\n
+    公的な情報ではありませんので、必ず個人の責任に基づいて利用してください。\n
+    This page was personally prepared by the author in reference to information on the official Sushiro website.\n
+    It is not public information and should always be used based on personal responsibility.
+    """)
+
     return
 
 
