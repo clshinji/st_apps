@@ -12,10 +12,6 @@
 
 [🍣アプリへのリンク](https://clshinji-st-apps-main-zzt79i.streamlit.app/)
 
-<img src="st_apps_qr.PNG" width= "300px" >
+👇スマホでアクセスする場合は、このQRコードを読み取る
 
-<p>
-<a href="[http://sozai.rash.jp/p/000054.html](http://sozai.rash.jp/p/000054.html](https://clshinji-st-apps-main-zzt79i.streamlit.app/)">
-<img src="st_apps_qr.PNG" alt="🍣アプリへのリンク" />
-</a>
-</p> 
+<img src="st_apps_qr.PNG" width= "300px" >
