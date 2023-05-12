@@ -70,7 +70,7 @@ def main():
     
     # 結果を表示する
     st.markdown('# アレルギー情報テーブル')
-    st.dataframe(df_view, use_container_width=True)
+    st.dataframe(df_view)
 
     # 注意書き
     caution_markdown = read_markdown_file("caution.md")
