@@ -1,17 +1,15 @@
 import tabula
 import pandas as pd
 from pprint import pprint
-import road_yml
 
 
-def get_table(target_pdf):
+def get_table(target_pdf, config):
     ''' Streamlit上でアップしたPDFからデータテーブル用CSVを生成する
         ※元々ノートブック上で手動で実行していた操作を移植
     Args:
         target_pdf(str): StreamlitにアップしたPDFファイルパス
+        config(instance): config.ymlを読み込んだ設定ファイル
     '''
-    # ymlファイルから列名を読み込んでセットする
-    config = road_yml.yml_list()
 
     # 列名のチェック用
     print('＜列名のチェック＞')
