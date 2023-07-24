@@ -1,4 +1,5 @@
 import streamlit as st
+from datetime import date
 from pathlib import Path
 import pandas as pd
 from get_table import get_table
@@ -8,7 +9,6 @@ def main():
     '''
     スシローHPのアレルギー情報(pdf)から読み取ったテーブルを基にして、アレルギー情報を検索するアプリ
     アレルギー情報ファイル名：allergy_table.csv
-    サイドバーの
     '''
 
     csv_path = 'allergy_table.csv'
@@ -82,6 +82,7 @@ def main():
     uploaded_file = st.file_uploader("アレルギー情報PDFをアップロード")
 
     if uploaded_file is not None:
+       update_date = st.date_input('更新日を入力：', date.today())
        if st.button('アップしたPDFで情報を更新する　⚠もとに戻せないので注意！'):
             st.write(uploaded_file)
             get_table(uploaded_file)
