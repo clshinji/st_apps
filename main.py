@@ -1,7 +1,7 @@
 import streamlit as st
 from pathlib import Path
 import pandas as pd
-# from get_table import get_table
+from get_table import get_table
 
 
 def main():
@@ -77,16 +77,16 @@ def main():
     caution_markdown = read_markdown_file("caution.md")
     st.markdown(caution_markdown, unsafe_allow_html=True)
 
-    # # データテーブル管理用
-    # st.markdown('# アレルギー情報更新用')
-    # uploaded_file = st.file_uploader("アレルギー情報PDFをアップロード")
+    # データテーブル管理用
+    st.markdown('# アレルギー情報更新用')
+    uploaded_file = st.file_uploader("アレルギー情報PDFをアップロード")
 
-    # if uploaded_file is not None:
-    #    if st.button('アップしたPDFで情報を更新する　⚠もとに戻せないので注意！'):
-    #         st.write(uploaded_file)
-    #         get_table(uploaded_file)
-    #         st.success('アップしたPDFでアレルギー情報を更新しました')
-    # return
+    if uploaded_file is not None:
+       if st.button('アップしたPDFで情報を更新する　⚠もとに戻せないので注意！'):
+            st.write(uploaded_file)
+            get_table(uploaded_file)
+            st.success('アップしたPDFでアレルギー情報を更新しました')
+    return
 
 
 @st.cache()
