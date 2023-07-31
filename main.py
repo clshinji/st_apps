@@ -1,22 +1,27 @@
 import streamlit as st
+from datetime import date
 from pathlib import Path
 import pandas as pd
-# from get_table import get_table
+from get_table import get_table
+import load_yml
 
 
 def main():
     '''
     スシローHPのアレルギー情報(pdf)から読み取ったテーブルを基にして、アレルギー情報を検索するアプリ
     アレルギー情報ファイル名：allergy_table.csv
-    サイドバーの
     '''
 
     csv_path = 'allergy_table.csv'
     type_column_name = '区分'
     names_column_name = 'メニュー名称'
 
+    # ymlファイルから列名を読み込んでセットする
+    config = load_yml.yml_list()
+
+
     st.markdown('# 🍣スシローアレルギー情報')
-    st.write('更新日:2023/7/14')
+    st.write(f'更新日:{config.update_date}')
 
     # データフレームの読み込み
     df = pd.read_csv(csv_path, index_col=0)
@@ -77,19 +82,27 @@ def main():
     caution_markdown = read_markdown_file("caution.md")
     st.markdown(caution_markdown, unsafe_allow_html=True)
 
-    # # データテーブル管理用
-    # st.markdown('# アレルギー情報更新用')
-    # uploaded_file = st.file_uploader("アレルギー情報PDFをアップロード")
+    # データテーブル管理用
+    st.markdown('# アレルギー情報更新用')
+    uploaded_file = st.file_uploader("アレルギー情報PDFをアップロード")
 
-    # if uploaded_file is not None:
-    #    if st.button('アップしたPDFで情報を更新する　⚠もとに戻せないので注意！'):
-    #         st.write(uploaded_file)
-    #         get_table(uploaded_file)
-    #         st.success('アップしたPDFでアレルギー情報を更新しました')
-    # return
+    if uploaded_file is not None:
+       update_date = st.date_input('更新日を入力：', date.today())
+       if st.button('アップしたPDFで情報を更新する　⚠もとに戻せないので注意！'):
+            st.write(uploaded_file)
+            with st.spinner('更新中'):
+                get_table(uploaded_file, config)
+
+            # 画面に表示する更新日を変更する（config.ymlを更新）
+            config.set_update_date(update_date)
+
+            st.success(f'アップしたPDFでアレルギー情報を更新しました 更新日：{update_date}')
+            
+            
+    return
 
 
-@st.cache()
+@st.cache_data
 def read_markdown_file(markdown_file):
     return Path(markdown_file).read_text()
 
