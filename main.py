@@ -102,7 +102,7 @@ def main():
     return
 
 
-@st.cache_data()
+@st.cache_data
 def read_markdown_file(markdown_file):
     return Path(markdown_file).read_text()
 
